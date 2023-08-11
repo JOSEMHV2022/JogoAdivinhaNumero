@@ -443,7 +443,10 @@
 
             }
             function fimDeJogo() {
-
+                if (config.pontuacao > localStorage.getItem("pontuacao")) {
+                    record.innerHTML = `${config.pontuacao}`
+                    localStorage.setItem("pontuacao", JSON.stringify(config.pontuacao))
+                }
                 janela.classList.remove("principal")
                 janela.className="final"
                 janela.innerHTML = `<form class="centro final" id="centro">
@@ -461,10 +464,7 @@
         });
 
 
-        if (config.pontuacao > localStorage.getItem("pontuacao")) {
-                    record.innerHTML = `${config.pontuacao}`
-                    localStorage.setItem("pontuacao", JSON.stringify(config.pontuacao))
-                }
+        
 
     </script>
 </body>
